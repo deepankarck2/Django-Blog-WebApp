@@ -20,5 +20,5 @@ from django.urls import include #it is to use our application(blog) file
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('blog/', include('blog.urls')),   #if we go to blog, it will load blog pages/ map blog urls. 
+    path('blog/', include('blog.urls')),   #if we go to blog, it will load blog pages/ map blog urls. Chop off the matched part, sends the left part. Like: blog/about, sends about/ 
 ]
