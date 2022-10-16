@@ -15,7 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.urls import include #it is to use our application(blog) file
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('blog/', include('blog.urls')),   #if we go to blog, it will load blog pages/ map blog urls. 
 ]
