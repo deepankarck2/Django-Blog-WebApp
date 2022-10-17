@@ -20,3 +20,7 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+#Username (leave blank to use 'dip2l'): ck.deepankar
+#Email address: ck.deepankar@gmail.com
+#pass: 7878

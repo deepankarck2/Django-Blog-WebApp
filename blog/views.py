@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from .models import Post #import post class
+
 #from django.http import HttpResponse no longer needed
 
 posts = [
@@ -19,7 +21,7 @@ posts = [
 #This is how we want to handle when an uses goes to the home page.
 def home(request):  #takes a request argument, http response that we landed on the mohe page
     context = {
-        'post_data': posts
+        'post_data': Post.objects.all()     #either pass a dict, or an object
     }
 
    #return HttpResponse('<h1>Blog Home</h1>') #returns http element when called in the url file
