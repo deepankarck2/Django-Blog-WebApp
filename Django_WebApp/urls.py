@@ -15,13 +15,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+
 from django.urls import include
-
 from blog import views #it is to use our application(blog) file
-
+from Users import views as user_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('register/', user_views.register, name='register'),
     #path('blog/', include('blog.urls')),   #if we go to blog, it will load blog pages/ map blog urls. Chop off the matched part, sends the left part. Like: blog/about, sends about/ 
     path('', include('blog.urls')), #empty to make the first page as home page
+
 ]
