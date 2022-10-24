@@ -11,6 +11,19 @@
       </div>
     </div>
     <!-- FORM HERE -->
+    <!-- Loading the reset email password -->
+    <form method="POST" enctype="multipart/form-data"> <!-- enc= to save images -->
+        {% csrf_token %}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4"> Profile Info </legend>
+            <!--  {{ form.as_p }} to display as paragraph-->
+             {{ u_form|crispy }}
+             {{ p_form|crispy }} <!-- TO display the image selection -->
+        </fieldset> 
+        <div class="form-group">
+            <button class="btn btn-outline-info" type="submit">Update</button>
+        </div>
+    </form>
 </div>
 
 {% endblock content %}
