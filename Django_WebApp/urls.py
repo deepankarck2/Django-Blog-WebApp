@@ -13,12 +13,15 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+import imp
+from re import template
 from django.contrib import admin
 from django.urls import path
 
 from django.urls import include
 from blog import views #it is to use our application(blog) file
 from Users import views as user_views
+from django.contrib.auth import views as auth_views #login, logout
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,4 +29,6 @@ urlpatterns = [
     #path('blog/', include('blog.urls')),   #if we go to blog, it will load blog pages/ map blog urls. Chop off the matched part, sends the left part. Like: blog/about, sends about/ 
     path('', include('blog.urls')), #empty to make the first page as home page
 
+    path('login/', auth_views.LoginView.as_view(template_name = 'Users/login.html'), name='login'), #to use customized login page
+    path('logout/', auth_views.LogoutView.as_view(template_name = 'Users/logout.html'), name='logout'), #to use customized logout page
 ]
