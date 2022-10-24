@@ -5,6 +5,7 @@ from django.shortcuts import redirect #to redirect users
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages #to show flash messages 
 from .forms import UserRegisterForm
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -19,3 +20,7 @@ def register(request):
     else: 
         form = UserRegisterForm()
     return render(request, 'Users/register.html', {'form': form})
+
+@login_required #DECORATOR: #need to make sure user is logged in before they can see their profile
+def profile(request):   
+    return render(request, 'Users/profile.html')
