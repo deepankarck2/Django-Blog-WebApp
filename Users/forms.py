@@ -10,3 +10,4 @@ class UserRegisterForm(UserCreationForm):   #inherits from creation form
     class Meta:
         model = User    #which model is going to be affected. Built in User model 
         fields = ['username', 'email', 'password1', 'password2']
+

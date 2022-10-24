@@ -16,7 +16,7 @@ def register(request):
             form.save() #if valid, save user.
             username = form.cleaned_data.get('username')    #form info will save in cleaned_data dic after submitting
             messages.success(request, f'{username}, your account has been created') #showing flash success message
-            return redirect('blog-home')
+            return redirect('login')
     else: 
         form = UserRegisterForm()
     return render(request, 'Users/register.html', {'form': form})
